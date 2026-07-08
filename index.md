@@ -12,7 +12,7 @@ hero:
       link: /markdown-examples
     - theme: alt
       text: 阳光
-      link: /posts/first
+      link: /posts/sdsd/niu
 
 features:
   - title: Feature A
