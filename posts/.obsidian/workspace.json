@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "天才/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "未命名"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "天才/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "index 的反向链接列表"
+              "title": "未命名 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "天才/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "index 的出链列表"
+              "title": "未命名 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "天才/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "未命名 的大纲"
             }
           }
         ]
@@ -184,12 +184,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fafb4ec5d9072be3",
+  "active": "55fcec0ce0a4a737",
   "lastOpenFiles": [
+    "index.md",
+    "天才/未命名.md",
+    "天才",
+    "sdsd/sad.md",
+    "sdsd/sad.txt",
+    "sdsd/新建 文本文档.txt",
     "sdsd/niu.md",
     "sdsd",
     "first.md",
-    "index.md",
     "学习/niu.md",
     "学习/niu.txt",
     "学习/新建 文本文档.txt",

@@ -1,6 +1,45 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from 'vitepress-sidebar' // 注意：最新版函数名通常是 generateSidebar
+import fs from 'fs'
+import path from 'path'
 
+// 自定义的高效扫描函数：只扫描 posts 文件夹并自动过滤隐藏文件夹
+function getAutoSidebar() {
+  const postsDir = path.resolve(__dirname, '../posts')
+
+  // 如果文件夹还不存在，先返回空
+  if (!fs.existsSync(postsDir)) return []
+
+  // 读取 posts 下的所有第一层子文件夹（如：学习、日记）
+  const categories = fs.readdirSync(postsDir).filter(file => {
+    const fullPath = path.join(postsDir, file)
+    return (
+        fs.statSync(fullPath).isDirectory() &&
+        !file.startsWith('.') // 完美过滤掉 .obsidian 和 .git
+    )
+  })
+
+  // 把每个文件夹映射成侧边栏的分组（Group）
+  return categories.map(category => {
+    const categoryPath = path.join(postsDir, category)
+
+    // 读取该分类文件夹下的所有 .md 文件
+    const articles = fs.readdirSync(categoryPath).filter(file => file.endsWith('.md'))
+
+    return {
+      text: category, // 侧边栏分组名称，比如“学习”
+      collapsed: true,
+      items: articles.map(article => {
+        const nameWithoutExt = path.basename(article, '.md')
+        return {
+          text: nameWithoutExt, // 文章标题
+          link: `/posts/${category}/${nameWithoutExt}` // 精准不丢失的路径
+        }
+      })
+    }
+  })
+}
+
+// 确保这里完整包裹并导出
 export default defineConfig({
   title: "chenduiblog",
   description: "A VitePress Site",
@@ -10,14 +49,10 @@ export default defineConfig({
       { text: 'Home', link: '/' }
     ],
 
-    // 关键点：改用默认的官方推荐方法名
-    sidebar: generateSidebar({
-      documentRootPath: '/',
-      scanStartPath: 'posts',    // 只精准扫描 posts 文件夹
-      resolvePath: '/',
-      prefix: '/posts/',         // 关键点：官方正确的属性名是 prefix，用来在 URL 前面强行补上 /posts/
-      collapsed: true,
-    }),
+    // 采用官方的多侧边栏模式，动态加载动态扫描的数据
+    sidebar: {
+      '/posts/': getAutoSidebar()
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
