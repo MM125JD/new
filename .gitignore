@@ -1,0 +1,8 @@
+# 忽略依赖和自动生成的文件
+node_modules/
+.vitepress/cache/
+.vitepress/dist/
+
+# 忽略系统文件
+.DS_Store
+*.log
