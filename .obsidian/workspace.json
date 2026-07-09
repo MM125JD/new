@@ -1,25 +1,24 @@
 {
   "main": {
-    "id": "2e532873efe9c627",
+    "id": "3b65a38a0e7c9963",
     "type": "split",
     "children": [
       {
-        "id": "869cf47183649589",
+        "id": "ed2c737a37e2e827",
         "type": "tabs",
         "children": [
           {
-            "id": "55fcec0ce0a4a737",
+            "id": "f4b87e28833370c1",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "posts/.obsidian/workspace.json",
-                "bFile": "posts/.obsidian/workspace.json",
-                "aRef": "d36ed8f7fbe28cecdcca04c9ee1d4406de8ef3f3^",
-                "bRef": "d36ed8f7fbe28cecdcca04c9ee1d4406de8ef3f3"
+                "file": "posts/sdsd/niu.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: workspace.json (d36ed8f)"
+              "icon": "lucide-file",
+              "title": "niu"
             }
           }
         ]
@@ -28,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "fe1090cc9787f680",
+    "id": "286c3f2bf213961c",
     "type": "split",
     "children": [
       {
-        "id": "f8f47fc38043c9a2",
+        "id": "b95c4b9121a23381",
         "type": "tabs",
         "children": [
           {
-            "id": "fafb4ec5d9072be3",
+            "id": "f145e55d7da613d7",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -49,7 +48,7 @@
             }
           },
           {
-            "id": "f425978ba29dc0e2",
+            "id": "3e8414e6c59e2e32",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -66,7 +65,7 @@
             }
           },
           {
-            "id": "f5b11367a9ca5b2d",
+            "id": "8c078eb20b1a8e8a",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -82,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "3ff5675688a5fc68",
+    "id": "dadf8c49b2bf276c",
     "type": "split",
     "children": [
       {
-        "id": "88a789bd3a127fb2",
+        "id": "6314adbdc117229d",
         "type": "tabs",
         "children": [
           {
-            "id": "090986c5b65a06ff",
+            "id": "369e0dac1ae07f3a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "天才/未命名.md",
+                "file": "posts/sdsd/niu.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "未命名 的反向链接列表"
+              "title": "niu 的反向链接列表"
             }
           },
           {
-            "id": "d393da030f9e7067",
+            "id": "c7aeb8867d2942a4",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "posts/sdsd/niu.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "index 的出链列表"
+              "title": "niu 的出链列表"
             }
           },
           {
-            "id": "ff12d91c963a7314",
+            "id": "76b3920c4bc14db8",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -138,7 +137,7 @@
             }
           },
           {
-            "id": "6dbd4f30c4c31eaf",
+            "id": "1e973388cecefd16",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -152,35 +151,26 @@
             }
           },
           {
-            "id": "37495ee4579312be",
+            "id": "13777ee26dd5e5b2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "posts/sdsd/niu.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
-            }
-          },
-          {
-            "id": "2ba1644818d25a31",
-            "type": "leaf",
-            "state": {
-              "type": "git-history-view",
-              "state": {},
-              "icon": "history",
-              "title": "History"
+              "title": "niu 的大纲"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,31 +180,14 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false,
-      "obsidian-git:Open Git source control": false
+      "bases:新建数据库": false
     }
   },
-  "active": "2ba1644818d25a31",
+  "active": "f4b87e28833370c1",
   "lastOpenFiles": [
-    "sdsd/sad.md",
-    "sdsd/niu.md",
-    "index.md",
-    "first.md",
-    "我是/牛马的一声.md",
-    "天才/未命名.md",
-    "我是",
-    "天才",
-    "sdsd",
-    "日记/7.9.md",
-    "日记",
-    "未命名.canvas",
-    "未命名 1.canvas",
-    "sdsd/sad.txt",
-    "sdsd/新建 文本文档.txt",
-    "学习/niu.md",
-    "学习/niu.txt",
-    "学习/新建 文本文档.txt",
-    "学习",
-    "新建文件夹"
+    "posts/天才/未命名.md",
+    "markdown-examples.md",
+    "api-examples.md",
+    "index.md"
   ]
 }
