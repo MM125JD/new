@@ -4,22 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "869cf47183649589",
+        "id": "a0f957f6a152e297",
         "type": "tabs",
         "children": [
           {
-            "id": "55fcec0ce0a4a737",
+            "id": "1fb135b959648bf5",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "posts/.obsidian/workspace.json",
-                "bFile": "posts/.obsidian/workspace.json",
-                "aRef": "d36ed8f7fbe28cecdcca04c9ee1d4406de8ef3f3^",
-                "bRef": "d36ed8f7fbe28cecdcca04c9ee1d4406de8ef3f3"
+                "file": "sdsd/sad.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: workspace.json (d36ed8f)"
+              "icon": "lucide-file",
+              "title": "sad"
             }
           }
         ]
@@ -157,16 +156,17 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "sdsd/sad.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "sad 的大纲"
             }
           },
           {
-            "id": "2ba1644818d25a31",
+            "id": "8f0b5518f5199b22",
             "type": "leaf",
             "state": {
               "type": "git-history-view",
@@ -194,13 +194,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2ba1644818d25a31",
+  "active": "8f0b5518f5199b22",
   "lastOpenFiles": [
-    "sdsd/sad.md",
-    "sdsd/niu.md",
-    "index.md",
     "first.md",
+    "index.md",
+    "sdsd/niu.md",
     "我是/牛马的一声.md",
+    "sdsd/sad.md",
     "天才/未命名.md",
     "我是",
     "天才",
