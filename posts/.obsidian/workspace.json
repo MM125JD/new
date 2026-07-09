@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "天才/未命名.md",
+                "file": "天才/别删.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "别删"
             }
           }
         ],
@@ -209,10 +209,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fafb4ec5d9072be3",
+  "active": "a1ec73d2c26de3ee",
   "lastOpenFiles": [
-    "我是/牛马的一声.md",
+    "天才/别删.md",
     "first.md",
+    "我是/牛马的一声.md",
     "洗撒大苏打卡萨丁就/genmini别骗我.md",
     "未命名 1.md",
     "未命名.md",
@@ -221,7 +222,6 @@
     "sdsd/sad.md",
     "sdsd/niu.md",
     "index.md",
-    "天才/未命名.md",
     "我是",
     "天才",
     "sdsd",
