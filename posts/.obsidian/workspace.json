@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "天才/未命名.md",
+                "file": "first.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "first"
             }
           }
         ]
@@ -186,9 +186,9 @@
   },
   "active": "fafb4ec5d9072be3",
   "lastOpenFiles": [
+    "天才/未命名.md",
     "未命名.canvas",
     "未命名 1.canvas",
-    "天才/未命名.md",
     "index.md",
     "天才",
     "sdsd/sad.md",
