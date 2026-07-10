@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import callouts from 'markdown-it-obsidian-callouts'
 import fs from 'fs'
 import path from 'path'
 
@@ -44,6 +45,14 @@ export default defineConfig({
   title: "chenduiblog",
   description: "A VitePress Site",
   base: '/new/',
+
+  // 👉 【修正】markdown 是顶层配置，必须移到 themeConfig 外面
+  markdown: {
+    config: (md) => {
+      md.use(callouts) // 启用插件
+    }
+  },
+
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' }
