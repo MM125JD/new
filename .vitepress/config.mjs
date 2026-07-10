@@ -50,7 +50,14 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use(callouts) // 启用插件
-    }
+    },
+    languages: [
+      {
+        id: 'dataview',
+        scopeName: 'source.js',
+        grammar: {} // 借用内置高亮
+      }
+    ]
   },
 
   themeConfig: {
