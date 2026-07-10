@@ -171,27 +171,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "sdsd/sad.md",
+                "file": "你好/未知的一天.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "sad 的大纲"
-            }
-          },
-          {
-            "id": "8f0b5518f5199b22",
-            "type": "leaf",
-            "state": {
-              "type": "git-history-view",
-              "state": {},
-              "icon": "history",
-              "title": "History"
+              "title": "未知的一天 的大纲"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
