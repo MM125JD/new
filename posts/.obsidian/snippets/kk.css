@@ -1,0 +1,40 @@
+/* 1. 外层容器：确保两个卡片永远在同一个横线上并排（平分 50% 空间） */
+.my-card-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px !important;
+  margin: 20px 0 !important;
+}
+
+/* 2. 单个卡片样式 */
+.my-inline-card {
+  display: block !important;
+  text-decoration: none !important; /* 去掉烦人的下划线 */
+  background-color: var(--background-secondary) !important; /* 自动适配 Obsidian 的浅色/深色主题 */
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* 鼠标悬停在框上时，边框高亮变色 */
+.my-inline-card:hover {
+  border-color: var(--text-accent) !important;
+  background-color: var(--background-secondary-alt) !important;
+}
+
+/* 3. 卡片内的大标题样式 */
+.my-inline-card .my-card-title {
+  font-weight: 600 !important;
+  color: var(--text-normal) !important;
+  font-size: 1.05rem !important;
+  margin: 0 0 6px 0 !important;
+}
+
+/* 4. 卡片内的详细描述文字样式 */
+.my-inline-card .my-card-desc {
+  font-size: 0.9rem !important;
+  color: var(--text-muted) !important; /* 淡淡的灰色，形成视觉层级 */
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
