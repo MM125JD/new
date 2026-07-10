@@ -1,33 +1,11 @@
-/* 让 Obsidian 的 Callout 框具备 VitePress 的卡片基础样式 */
-.obsidian-callout, details.obsidian-callout {
-  margin: 16px 0;
-  padding: 16px;
-  border-left: 4px solid #3eaf7c;
-  background-color: var(--vp-c-bg-alt, #f6f6f7);
-  border-radius: 8px;
-}
+/* 自定义 VitePress 中 Shiki 代码块行高亮的颜色 */
+.vp-doc div[class*="language-"] .line.highlighted {
+  /* 更改背景色（这里用了一个带透明度的醒目蓝色，你可以换成任意颜色） */
+  background-color: rgba(0, 150, 255, 0.15) !important;
 
-/* 标题样式 */
-.obsidian-callout-title, summary.obsidian-callout-title {
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 8px;
-}
-
-/* 1. 针对 Info / Note 涂色 (淡蓝色) */
-.callout-info, .callout-note, details.callout-info, details.callout-note {
-  border-color: #3eaf7c;
-  background-color: rgba(62, 175, 124, 0.1);
-}
-
-/* 2. 针对 Success / Tip 涂色 (绿色) */
-.callout-success, .callout-tip, details.callout-success, details.callout-tip {
-  border-color: #10b981;
-  background-color: rgba(16, 185, 129, 0.1);
-}
-
-/* 3. 针对 Warning 涂色 (黄色) */
-.callout-warning, details.callout-warning {
-  border-color: #f59e0b;
-  background-color: rgba(245, 158, 11, 0.1);
+  /* 可选：在左侧加一条粗高亮线，让它更明显 */
+  border-left: 4px solid #0096ff;
+  /* 稍微调整一下内边距，防止左边框压到代码 */
+  margin-left: -24px;
+  padding-left: 20px;
 }
