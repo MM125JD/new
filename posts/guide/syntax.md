@@ -1,5 +1,3 @@
 ::: warning
-this warning
-::: warning
-this warning
-:::
+this warning::: warning
+this warning:::
