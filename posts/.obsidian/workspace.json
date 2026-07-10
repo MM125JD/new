@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "你好/未知的一天.md",
+                "file": "guide/syntax.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未知的一天"
+              "title": "syntax"
             }
           }
         ],
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "你好/未知的一天.md",
+                "file": "guide/syntax.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未知的一天 的大纲"
+              "title": "syntax 的大纲"
             }
           }
         ],
@@ -201,8 +201,10 @@
   },
   "active": "a1ec73d2c26de3ee",
   "lastOpenFiles": [
-    "JavaScript/复习.md",
     "你好/未知的一天.md",
+    "guide/syntax.md",
+    "guide",
+    "JavaScript/复习.md",
     "你好",
     "天才/别删.md",
     "git",
@@ -222,7 +224,6 @@
     "天才",
     "sdsd",
     "日记/7.9.md",
-    "日记",
     "未命名.canvas",
     "未命名 1.canvas",
     "学习/niu.md"
