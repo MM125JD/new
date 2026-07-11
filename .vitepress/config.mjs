@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import callouts from 'markdown-it-obsidian-callouts'
+import taskLists from 'markdown-it-task-lists'
 import fs from 'fs'
 import path from 'path'
 
@@ -49,6 +50,7 @@ export default defineConfig({
   // 👉 【修正】markdown 是顶层配置，必须移到 themeConfig 外面
   markdown: {
     config: (md) => {
+      md.use(taskLists)
       md.use(callouts) // 启用插件
     },
     lineNumbers: true,
