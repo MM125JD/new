@@ -1,0 +1,121 @@
+import os
+import time
+
+# 保持系统代理继承
+# os.environ['HTTP_PROXY'] = 'http://127.0.0.1:8443'
+# os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:8443'
+
+import requests
+from bs4 import BeautifulSoup
+from google import genai
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+
+# ================= 1. 配置区域 =================
+MEDIUM_COOKIE = "nonce=mNEOilzy; _gid=GA1.2.1254378932.1782014479; sz=1521; pr=1.25; tz=-480; uid=234b64e47106; sid=1:tHvASt5ewKenSUAufuEh9DPOGu7+l8ki4ceiMQa1hu2YJLvkanIfQ59JxPchctHh; rid=xIrW9INW7hS3dIMoDZhk6UZayqKQyTFKVObT5JZORMTylqnbqjHW2ESlWZPas/C6lWJUGIBSiMvld0nhpNyojDlLENcFf8oI8t8bNiAi/UUlbI1KVBfZlSSKLyPPnw2l; xsrf=Ic9QLUf01R5jz26Y; _ga=GA1.1.1761841999.1782014476; cf_clearance=zRQ1nNYiCZTyPAVJOAyPXM.iC7TqXfvqbtLyoPpGt60-1782088664-1.2.1.1-I_zGzKzgWsYUXEZpxpJEow83g6UUxvfndsuivtM4WfmFRQi9TcC9T2Xg7fNbbgTO3qCYwAKbUfeKUf9WdO2IVGrrcYSClMsnqNWVTj2Q3XpGWYN11JZvTjikboY3zJrr1_JyfjamAW6FQIBtH7JQSXJHOtRx7ukrvCdE89a42Z7GdKI0EzAJWeo3gWljm9xL1yLkZAvH7DtpK_19GNavtapj7szPQQoNbKkEuFQC5dzUxCnYzMB6bTcwcyJrppkGt9p2ZXjCB6oPyW7g0Qel7h4bupXkEszwG.SeCGEMWAY3HxqayYFOuThLBHKCfkyN.jEXOSTbIxzAnk7KBYjcug; _ga_7JY7T788PK=GS2.1.s1782088667$o2$g0$t1782088667$j60$l0$h0; _cfuvid=a3bn7QTxNEgDqc_WgpMpfnJztYKL56HBdCxvgIYFjHw-1782088670.0610273-1.0.1.1-xnY.bZKqyV2qrLt72m8V_peHeE4NiCY7ZPjBaSzZrLo; _dd_s=rum=0&expire=1782089599955"
+GEMINI_API_KEY = "AIzaSyC6N2NqySAeJef67W7WmIHSkOvNh2j8NmU"
+
+SCOPES = ['https://www.googleapis.com/auth/documents', 'https://www.googleapis.com/auth/drive.file']
+# ===============================================
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Cookie': MEDIUM_COOKIE
+}
+
+def get_google_services():
+    creds = None
+    if os.path.exists('token.json'):
+        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open('token.json', 'w') as token:
+            token.write(creds.to_json())
+    return build('docs', 'v1', credentials=creds), build('drive', 'v3', credentials=creds)
+
+def get_high_clap_articles():
+    target_urls = ["https://medium.com/feed/tag/personal-growth", "https://medium.com/feed/tag/psychology"]
+    valid_articles = []
+    for url in target_urls:
+        print(f"正在扫描 Medium 话题源: {url}...")
+        try:
+            response = requests.get(url, headers=headers, timeout=10)
+            soup = BeautifulSoup(response.text, 'xml')
+            for item in soup.find_all('item'):
+                title = item.title.text
+                link = item.link.text
+                article_detail = requests.get(link, headers=headers, timeout=10)
+                detail_soup = BeautifulSoup(article_detail.text, 'html.parser')
+                paragraphs = detail_soup.find_all('p')
+                if len(paragraphs) > 5:
+                    valid_articles.append({"title": title, "content": "\n\n".join([p.text for p in paragraphs])})
+                if len(valid_articles) >= 6:  # 顺便帮你多拿几篇
+                    break
+        except Exception as e:
+            print(f"扫描源 {url} 失败: {e}")
+    return valid_articles
+
+def translate_all_at_once(articles):
+    """将所有文章打包，一次性发送给 Gemini 翻译"""
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    
+    # 动态组装超级长文本
+    combined_body = ""
+    for idx, art in enumerate(articles, 1):
+        combined_body += f"\n\n=========================================\n"
+        combined_body += f"【第 {idx} 篇】文章标题: {art['title']}\n"
+        combined_body += f"=========================================\n\n"
+        combined_body += art['content']
+        
+    prompt = f"""你是一个精通心理学和个人成长领域的资深翻译家。
+请将以下几篇英文文章翻译成高质量的中文。请务必完整保留我给出的原文章序号、分隔线和标题结构，行文要流畅，优雅且富有启发性：
+
+{combined_content if 'combined_content' in locals() else combined_body}"""
+
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
+    )
+    return response.text
+
+def create_combined_google_doc(docs_service, content):
+    """在 Google 云端硬盘创建当天的合集文档"""
+    import datetime
+    today_str = datetime.date.today().strftime("%Y-%m-%d")
+    body = {'title': f"[Medium优质文章翻译精选合集] - {today_str}"}
+    doc = docs_service.documents().create(body=body).execute()
+    doc_id = doc.get('documentId')
+
+    requests_body = [{'insertText': {'location': {'index': 1}, 'text': content}}]
+    docs_service.documents().batchUpdate(documentId=doc_id, body={'requests': requests_body}).execute()
+    print(f"✨ 奇迹时刻！全量文章已成功一次性同步至谷歌文档: {body['title']}")
+
+if __name__ == "__main__":
+    print("正在初始化谷歌服务认证...")
+    try:
+        docs_service, drive_service = get_google_services()
+    except Exception as e:
+        print(f"谷歌认证失败: {e}")
+        exit()
+
+    print("开始获取 Medium 优质文章...")
+    articles = get_high_clap_articles()
+    if not articles:
+        print("未抓取到任何文章，程序退出。")
+        exit()
+        
+    print(f"筛选完成，共找到 {len(articles)} 篇长文。")
+    print("🚀 启动合体大招：正在打包所有长文提交给 Gemini 进行一次性高效率翻译...")
+    
+    try:
+        # 只调用 1 次接口，彻底规避 429 挂起问题
+        final_translation = translate_all_at_once(articles)
+        create_combined_google_doc(docs_service, final_translation)
+    except Exception as e:
+        print(f"❌ 运行失败: {e}")
