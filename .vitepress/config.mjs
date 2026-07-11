@@ -54,6 +54,10 @@ export default defineConfig({
       md.use(callouts) // 启用插件
     },
     lineNumbers: true,
+    theme:{
+      light: 'catppuccin-latte', // 白天：拿铁模式（代码高亮）
+      dark: 'catppuccin-mocha',  // 🌟 夜晚：摩卡模式（把 <flavor> 替换掉）
+    },
     languages: [
       {
         id: 'dataview',

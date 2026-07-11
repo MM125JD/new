@@ -1,9 +1,14 @@
 // .vitepress/theme/index.ts
-import DefaultTheme from 'vitepress/theme'
+// .vitepress/theme/index.ts
+import DefaultTheme from "vitepress/theme";
 import type { Theme } from 'vitepress'
-import './custom.css' // 引入你的自定义样式
+
+// 1. 引入官方猫咪皮肤（深色摩卡风味 + 薰衣草紫强调色）
+import "@catppuccin/vitepress/theme/mocha/lavender.css"; 
+
+// 2. 🌟 引入你自己的自定义样式文件！名字对上就完全没问题
+import './custom.css'; 
 
 export default {
   extends: DefaultTheme,
-  // 如果以后需要注册全局组件或引入其他插件，可以在这里扩展 enhaceApp
 } satisfies Theme
