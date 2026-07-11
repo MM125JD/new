@@ -4,6 +4,7 @@ layout: home
 
 hero:
   name: "chenduiblog"
+  theme:
   text: "A VitePress Site"
   image:
     image:
