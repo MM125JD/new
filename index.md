@@ -5,6 +5,9 @@ layout: home
 hero:
   name: "chenduiblog"
   text: "A VitePress Site"
+  image:
+    src: /hero-cat.png # 🌟 核心：把这里指向你刚才放进去的猫咪图片
+    alt: 可爱的小猫咪
   tagline: My great project tagline
   actions:
     - theme: brand
