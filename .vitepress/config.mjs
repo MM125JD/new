@@ -51,7 +51,7 @@ export default defineConfig({
     config: (md) => {
       md.use(callouts) // 启用插件
     },
-    
+    lineNumbers: true,
     languages: [
       {
         id: 'dataview',
