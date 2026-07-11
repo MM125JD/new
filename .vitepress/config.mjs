@@ -51,7 +51,7 @@ export default defineConfig({
     config: (md) => {
       md.use(callouts) // 启用插件
     },
-    theme: 'vitesse-dark',
+    
     languages: [
       {
         id: 'dataview',
