@@ -78,3 +78,26 @@
 .VPHero .tagline {
   color: #b4bfe2 !important; /* 柔和的莫兰迪淡蓝紫 */
 }
+/* 🌈 给首页副标题 "A VitePress Site" 注入炫彩光谱渐变色 */
+.VPHero .text {
+  /* 精准还原图片：135度斜向渐变，融合玫红、橙黄、嫩绿、青绿和紫红 */
+  background: linear-gradient(
+          135deg,
+          #ff007f 0%,   /* 左上角：艳丽玫红 */
+          #ffaa00 25%,  /* 过渡：明亮橙黄 */
+          #a8ff00 50%,  /* 中心：生机嫩绿 */
+          #00ffcc 75%,  /* 过渡：迷幻青绿 */
+          #ff007f 100%  /* 右下角：收尾玫红 */
+  ) !important;
+
+  /* 🔗 核心黑魔法：把渐变色裁剪到文字内部 */
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+
+  /* 💧 让文字原本的颜色变透明，从而露出底层的炫彩渐变 */
+  -webkit-text-fill-color: transparent !important;
+  text-fill-color: transparent !important;
+
+  /* ⚡ 可选：加粗一点点，让多色渐变色块显示得更明显、更有视觉冲击力 */
+  font-weight: bold !important;
+}
