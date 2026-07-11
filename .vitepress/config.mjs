@@ -68,7 +68,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/hero-cat.png',
     nav: [
       { text: 'Home', link: '/' }
     ],
