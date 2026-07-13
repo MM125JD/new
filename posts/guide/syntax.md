@@ -6,11 +6,10 @@
 
 ## 我的组件演示
 
-::: raw
 <button style="padding: 10px 20px; background-color: green; color: white;">
   我的绿色按钮
-</button>
-:::
+</button
+
 按钮
 ::: raw
 <a href="https://example.com" target="_blank" style="text-decoration: none;">
