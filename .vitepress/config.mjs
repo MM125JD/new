@@ -49,9 +49,11 @@ export default defineConfig({
 
   // 👉 【修正】markdown 是顶层配置，必须移到 themeConfig 外面
   markdown: {
+    lazyLoading: true,
     config: (md) => {
       md.use(taskLists)
       md.use(callouts) // 启用插件
+
     },
     lineNumbers: true,
     theme:{
