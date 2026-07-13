@@ -70,6 +70,17 @@ export default defineConfig({
   },
 
   themeConfig: {
+    themeConfig: {
+      // ⬇️ 就是添加下面这几行代码
+      outline: {
+        // level: [1, 6] 表示让右侧目录显示 1 级到 6 级的标题
+        // 这样你写的 # 一级标题 就会乖乖出现在右侧了！
+        level: [1, 6],
+
+        // 顺便可以把右侧的提示文字改成中文（默认是 On this page）
+        label: '本页大纲'
+      }
+    },
     logo: '/hero-cat.png',
     nav: [
       { text: 'Home', link: '/' }
