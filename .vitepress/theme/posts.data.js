@@ -1,35 +1,37 @@
-// .vitepress/theme/posts.data.js
+// posts.data.js
 import fs from 'node:fs'
 import path from 'node:path'
-import matter from 'gray-matter' // 用于解析 Markdown 顶部的 Frontmatter (需 npm i gray-matter -D)
+import matter from 'gray-matter'
 
 export default {
-    // 1. watch 允许你指定要监听的文件，本地开发时这些文件变了，数据会自动热更新
     watch: ['../../posts/**/*.md'],
 
-    // 2. load 函数是核心，它只在构建或开发服务器启动时运行
     load(watchedFiles) {
-        // watchedFiles 是一个包含所有匹配到的 md 文件绝对路径的数组
+        // 获取项目真正的根目录绝对路径（yangguangblog 目录）
+        const projectRootDir = path.resolve(__dirname, '../../')
+
         return watchedFiles
             .map((filePath) => {
-                // 读取文件内容
                 const fileContent = fs.readFileSync(filePath, 'utf-8')
-                // 解析 Markdown 顶部的 Frontmatter 数据
                 const { data } = matter(fileContent)
 
-                // 获取文件的相对路径，方便用于生成超链接
-                const relativePath = path.relative(path.resolve(__dirname, '../../'), filePath)
-                    .replace(/\\/g, '/') // 兼容 Windows 路径
-                    .replace(/\.md$/, '.html') // 将 .md 转换为打包后的 .html
+                // 1. 计算文件相对于项目根目录（yangguangblog）的相对路径
+                // 这样可以确保路径结构长得像 "posts/JavaScript/浏览器贴纸.md"
+                let relativePath = path.relative(projectRootDir, filePath)
+                    .replace(/\\/g, '/') // 兼容 Windows 的反斜杠 \
 
-                // 返回你想暴露给页面的单个文章元数据
+                // 2. 将末尾的 .md 替换为 .html
+                relativePath = relativePath.replace(/\.md$/, '.html')
+
+                // 3. ⚠️ 核心修复：确保路径前面有斜杠 "/"
+                const finalUrl = relativePath.startsWith('/') ? relativePath : '/' + relativePath
+
                 return {
-                    title: data.title || path.basename(filePath, '.md'), // 优先使用 frontmatter 里的 title
-                    url: '/' + relativePath,
-                    date: data.date || fs.statSync(filePath).mtime.toISOString().split('T')[0] // 优先使用 frontmatter 日期，否则用文件最后修改时间
+                    title: data.title || path.basename(filePath, '.md'),
+                    url: finalUrl, // 最终生成的链接，例如：/posts/JavaScript/浏览器贴纸.html
+                    date: data.date || fs.statSync(filePath).mtime.toISOString().split('T')[0]
                 }
             })
-            // 按照日期从新到旧排序
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     }
 }
