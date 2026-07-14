@@ -43,44 +43,38 @@ function getAutoSidebar() {
 
 // 确保这里完整包裹并导出
 export default defineConfig({
-  title: "chenduiblog",
-  description: "A VitePress Site",
-  base: '/new/',
+      title: "chenduiblog",
+      description: "A VitePress Site",
+      base: '/new/',
 
-  // 👉 【修正】markdown 是顶层配置，必须移到 themeConfig 外面
-  markdown: {
-    lazyLoading: true,
-    config: (md) => {
-      md.use(taskLists)
-      md.use(callouts) // 启用插件
+      // 👉 【修正】markdown 是顶层配置，必须移到 themeConfig 外面
+      markdown: {
+        lazyLoading: true,
+        config: (md) => {
+          md.use(taskLists)
+          md.use(callouts) // 启用插件
 
-    },
-    lineNumbers: true,
-    theme:{
-      light: 'catppuccin-latte', // 白天：拿铁模式（代码高亮）
-      dark: 'catppuccin-mocha',  // 🌟 夜晚：摩卡模式（把 <flavor> 替换掉）
-    },
-    languages: [
-      {
-        id: 'dataview',
-        scopeName: 'source.js',
-        grammar: {} // 借用内置高亮
-      }
-    ]
-  },
+        },
+        lineNumbers: true,
+        theme: {
+          light: 'catppuccin-latte', // 白天：拿铁模式（代码高亮）
+          dark: 'catppuccin-mocha',  // 🌟 夜晚：摩卡模式（把 <flavor> 替换掉）
+        },
+        languages: [
+          {
+            id: 'dataview',
+            scopeName: 'source.js',
+            grammar: {} // 借用内置高亮
+          }
+        ]
+      },
 
-  themeConfig: {
-    themeConfig: {
-      // ⬇️ 就是添加下面这几行代码
-      outline: {
-        // level: [1, 6] 表示让右侧目录显示 1 级到 6 级的标题
-        // 这样你写的 # 一级标题 就会乖乖出现在右侧了！
-        level: [1, 6],
-
-        // 顺便可以把右侧的提示文字改成中文（默认是 On this page）
-        label: '本页大纲'
-      }
-    },
+      themeConfig: {
+        // 这里的设置会对整个网站的“所有 Markdown 文件”同时生效！
+        outline: {
+          level: [1, 3],
+          label: '本页大纲'
+        },
     logo: '/hero-cat.png',
     nav: [
       { text: 'Home', link: '/' }
