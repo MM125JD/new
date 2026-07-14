@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/未命名.md",
+                "file": "JavaScript/浏览器贴纸.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "浏览器贴纸"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/未命名.md",
+                "file": "JavaScript/浏览器贴纸.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "浏览器贴纸 的大纲"
             }
           }
         ],
@@ -185,8 +185,11 @@
   },
   "active": "1fb135b959648bf5",
   "lastOpenFiles": [
+    "JavaScript/调色.md",
+    "JavaScript/浏览器贴纸.md",
+    "JavaScript/语言复读机.md",
+    "JavaScript/番茄钟.md",
     "JavaScript/复习.md",
-    "JavaScript/未命名.md",
     "你好/未命名.md",
     "你好/未知的一天.md",
     "你好/Kotlin基础复习.md",
