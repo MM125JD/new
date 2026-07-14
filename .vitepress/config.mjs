@@ -82,6 +82,7 @@ export default defineConfig({
 
     // 采用官方的多侧边栏模式，动态加载动态扫描的数据
     sidebar: {
+
       '/posts/': getAutoSidebar()
     },
 
