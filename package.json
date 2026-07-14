@@ -20,6 +20,7 @@
     "vitepress-sidebar": "^1.36.1"
   },
   "dependencies": {
+    "@catppuccin/palette": "^1.8.0",
     "@catppuccin/vitepress": "^0.1.2"
   }
 }
