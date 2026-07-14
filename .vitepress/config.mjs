@@ -72,7 +72,7 @@ export default defineConfig({
       themeConfig: {
         // 这里的设置会对整个网站的“所有 Markdown 文件”同时生效！
         outline: {
-          level: [1, 3],
+          level: [1, 2],
           label: '本页大纲'
         },
     logo: '/hero-cat.png',
