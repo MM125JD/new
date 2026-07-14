@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "页面局部元素/导航类.md",
+                "file": "页面局部元素/外部.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "导航类"
+              "title": "外部"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "页面局部元素/导航类.md",
+                "file": "页面局部元素/外部.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "导航类 的大纲"
+              "title": "外部 的大纲"
             }
           }
         ],
@@ -185,15 +185,16 @@
   },
   "active": "1fb135b959648bf5",
   "lastOpenFiles": [
-    "JavaScript/复习.md",
-    "页面局部元素/导航类.md",
-    "页面局部元素",
-    "天才/懒加载.md",
     "你好/未命名.md",
     "你好/未知的一天.md",
-    "天才/别删.md",
-    "guide/syntax.md",
     "你好/Kotlin基础复习.md",
+    "天才/懒加载.md",
+    "天才/别删.md",
+    "页面局部元素/外部.md",
+    "页面局部元素/导航类.md",
+    "JavaScript/复习.md",
+    "页面局部元素",
+    "guide/syntax.md",
     "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
     "日记/7.10.md",
     "日记",
