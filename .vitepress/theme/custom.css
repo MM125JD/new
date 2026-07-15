@@ -101,3 +101,17 @@
   /* ⚡ 可选：加粗一点点，让多色渐变色块显示得更明显、更有视觉冲击力 */
   font-weight: bold !important;
 }
+/* 默认是手机/移动端：一行强行塞下 2 个文件夹 */
+div[style*="display: grid"] {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+}
+
+/* 当屏幕宽度大于 768px（电脑或平板）时：自动根据空间平铺更多（3个或以上） */
+@media (min-width: 768px) {
+  div[style*="display: grid"] {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 15px !important;
+  }
+}
