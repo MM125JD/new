@@ -18,6 +18,9 @@ hero:
     - theme: alt
       text: 阳光
       link: /posts/天才/别删
+    - theme: alt
+      text: sd
+      link: /母列表
 
 features:
   - title: Feature A
