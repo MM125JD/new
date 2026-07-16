@@ -48,26 +48,36 @@ export default defineConfig({
       base: '/new/',
 
       // 👉 【修正】markdown 是顶层配置，必须移到 themeConfig 外面
-      markdown: {
+    markdown: {
         lazyLoading: true,
         config: (md) => {
-          md.use(taskLists)
-          md.use(callouts) // 启用插件
+            // 拦截 ![[...mp3]] 双链
+            md.inline.ruler.before('image', 'obsidian_audio', (state, silent) => {
+                const regex = /^!\[\[([^\]]+\.mp3)\]\]/;
+                const match = regex.exec(state.src.slice(state.pos));
 
-        },
-        lineNumbers: true,
-        theme: {
-          light: 'catppuccin-latte', // 白天：拿铁模式（代码高亮）
-          dark: 'catppuccin-mocha',  // 🌟 夜晚：摩卡模式（把 <flavor> 替换掉）
-        },
-        languages: [
-          {
-            id: 'dataview',
-            scopeName: 'source.js',
-            grammar: {} // 借用内置高亮
-          }
-        ]
-      },
+                if (!match) return false;
+
+                if (!silent) {
+                    const rawFileName = match[1];
+                    const fileName = rawFileName.split('/').pop() || '';
+
+                    const token = state.push('html_inline', '', 0);
+                    // ⭐ 核心修改：这里不再渲染原生的 <audio>，而是直接渲染你的全局 Vue 组件 <AudioPlayer />！
+                    // 加上 /new 前缀，对文件名进行安全编码
+                    const encodedFileName = encodeURIComponent(fileName);
+                    token.content = `<AudioPlayer src="/new/audios/${encodedFileName}" title="${fileName}" />`;
+                }
+
+                state.pos += match[0].length;
+                return true;
+            });
+
+            // 启用你原有的其他插件
+            if (typeof taskLists !== 'undefined') md.use(taskLists);
+            if (typeof callouts !== 'undefined') md.use(callouts);
+        }
+    },
 
       themeConfig: {
         // 这里的设置会对整个网站的“所有 Markdown 文件”同时生效！

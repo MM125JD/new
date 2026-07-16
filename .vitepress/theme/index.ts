@@ -2,6 +2,7 @@
 // .vitepress/theme/index.ts
 import DefaultTheme from "vitepress/theme";
 import type { Theme } from 'vitepress'
+import AudioPlayer from './components/AudioPlayer.vue'
 import { h } from 'vue'
 // @ts-ignore
 import GiscusComment from './components/GiscusComment.vue'
@@ -14,7 +15,10 @@ import './custom.css';
 
 export default {
   extends: DefaultTheme,
-
+  enhanceApp({ app }) {
+    // 全局注册组件，组件名为 'AudioPlayer'
+    app.component('AudioPlayer', AudioPlayer)
+  },
   Layout() {
     return h(DefaultTheme.Layout, null, {
       // doc-after 是 VitePress 官方提供的插槽，代表在文档正文的下方注入内容
