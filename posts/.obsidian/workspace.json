@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "你好/Kotlin基础复习.md",
+                "file": "Ai/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin基础复习"
+              "title": "未命名"
             }
           }
         ]
@@ -185,17 +185,23 @@
   },
   "active": "1fb135b959648bf5",
   "lastOpenFiles": [
+    "public/audios/Pasted image 20260716151658.png",
+    "public/audios/alec_koff-carnaval-484622.mp3",
+    "public/audios",
+    "public",
     "日记/7.10.md",
-    "天才/懒加载.md",
+    "Ai/未命名.md",
+    "Ai",
+    "页面局部元素/云端到本地.md",
+    "guide/syntax.md",
+    "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
     "你好/Kotlin基础复习.md",
-    "太难吃.md",
+    "天才/懒加载.md",
     "天才/别删.md",
     "天才/懒加载.md~",
     "JavaScript/语言复读机.md",
     "页面局部元素/外部.md",
     "页面局部元素/导航类.md",
-    "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
-    "guide/syntax.md",
     "JavaScript/调色.md",
     "JavaScript/番茄钟.md",
     "JavaScript/复习.md",
@@ -209,17 +215,12 @@
     "guide",
     "你好",
     "git",
-    "JavaScript",
-    "天才/未命名 1",
-    "天才/未命名",
     "first.md",
     "我是/牛马的一声.md",
     "洗撒大苏打卡萨丁就/genmini别骗我.md",
     "未命名 1.md",
-    "洗撒大苏打卡萨丁就",
     "sdsd/sad.md",
     "sdsd/niu.md",
-    "index.md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]

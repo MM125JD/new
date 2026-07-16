@@ -14,6 +14,7 @@ import './custom.css';
 
 export default {
   extends: DefaultTheme,
+
   Layout() {
     return h(DefaultTheme.Layout, null, {
       // doc-after 是 VitePress 官方提供的插槽，代表在文档正文的下方注入内容
