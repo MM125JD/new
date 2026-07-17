@@ -1,30 +1,24 @@
-name: Auto Update Audio List
+name: 自动更新音频并部署站点
 
 on:
   push:
     paths:
-      - 'public/audios/**' # 只有当你往这个文件夹上传新录音时，才会触发机器人
+      - 'public/audios/**' # 只有当你往这个文件夹上传新录音时触发
 
 jobs:
-  update-md:
+  update-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: 1. 拉取代码
         uses: actions/checkout@v4
         with:
           persist-credentials: true
 
-      - name: Run update script
+      - name: 2. 自动更新 Markdown 音频列表
         run: |
-          # 1. 找出 public/audios 文件夹下所有的 mp3 文件，格式化成 VitePress 需要的格式
-          # 结果会变成 'a.mp3',\n'b.mp3',\n
           AUDIOS_LIST=$(ls public/audios | grep '\.mp3$' | awk '{print "  \x27" $0 "\x27,"}')
-
-          # 2. 读取你的 Markdown 文件（这里假设是 index.md，如果是 docs/index.md 请修改路径）
-          MD_FILE="index.md"
-
-          # 3. 用 awk 动态替换 <AudioList :audios="[ ... ]" /> 里的内容
-          # 这个脚本会自动保留你原有的上下部分，只更新中括号里的音频列表
+          MD_FILE="index.md" # 如果你的 index.md 在 docs 目录下，请改为 docs/index.md
+          
           awk -v new_list="$AUDIOS_LIST" '
             BEGIN { p=1 }
             /:audios="\[/ { print; print new_list; p=0; next }
@@ -32,10 +26,28 @@ jobs:
             p { print }
           ' "$MD_FILE" > temp.md && mv temp.md "$MD_FILE"
 
-      - name: Commit and Push changes
+      - name: 3. 把修改后的 Markdown 提交回仓库
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.md
+          git add "$MD_FILE"
+          # 如果文件有变动就提交，没变动就跳过，防止报错
           git diff-index --quiet HEAD || git commit -m "auto: update audio list in md"
           git push
+
+      - name: 4. 安装 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+          cache: 'npm' # 如果你用 yarn 或 pnpm，可以改成对应的包管理器
+
+      - name: 5. 安装依赖并打包 VitePress
+        run: |
+          npm install
+          npm run docs:build # 请确保你 package.json 里的打包命令是这个，如果不是请修改
+
+      - name: 6. 部署到 GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .vitepress/dist # 请根据你 VitePress 实际生成的打包目录填写（通常是 docs/.vitepress/dist 或 .vitepress/dist）
