@@ -1,0 +1,41 @@
+name: Auto Update Audio List
+
+on:
+  push:
+    paths:
+      - 'public/audios/**' # 只有当你往这个文件夹上传新录音时，才会触发机器人
+
+jobs:
+  update-md:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Run update script
+        run: |
+          # 1. 找出 public/audios 文件夹下所有的 mp3 文件，格式化成 VitePress 需要的格式
+          # 结果会变成 'a.mp3',\n'b.mp3',\n
+          AUDIOS_LIST=$(ls public/audios | grep '\.mp3$' | awk '{print "  \x27" $0 "\x27,"}')
+
+          # 2. 读取你的 Markdown 文件（这里假设是 index.md，如果是 docs/index.md 请修改路径）
+          MD_FILE="index.md"
+
+          # 3. 用 awk 动态替换 <AudioList :audios="[ ... ]" /> 里的内容
+          # 这个脚本会自动保留你原有的上下部分，只更新中括号里的音频列表
+          awk -v new_list="$AUDIOS_LIST" '
+            BEGIN { p=1 }
+            /:audios="\[/ { print; print new_list; p=0; next }
+            /\]"/ { p=1 }
+            p { print }
+          ' "$MD_FILE" > temp.md && mv temp.md "$MD_FILE"
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.md
+          git diff-index --quiet HEAD || git commit -m "auto: update audio list in md"
+          git push
