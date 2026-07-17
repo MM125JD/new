@@ -45,8 +45,7 @@ jobs:
         run: npm install # 💡 替换 npm ci，避免 package-lock.json 不匹配时引发构建中断
 
       - name: Build with VitePress
-        run: npm run build # 💡 核心修改：使用你项目的标准打包命令
-
+        run: npm run docs:build # 💡 核心修改：从 npm run build 改回 npm run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
