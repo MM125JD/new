@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as s}from"./chunks/framework.D-9tmlIu.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"ss/阳光/未命名 1.md","filePath":"ss/阳光/未命名 1.md"}'),a={name:"ss/阳光/未命名 1.md"};function r(o,c,n,_,p,d){return t(),s("div")}const f=e(a,[["render",r]]);export{m as __pageData,f as default};
