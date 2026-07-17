@@ -1,7 +1,5 @@
 # 忽略依赖和自动生成的文件
 node_modules/
-.vitepress/cache/
-.vitepress/dist/
 .obsidian/workspace.json
 .obsidian/cache/
 .obsidian/plugins/obsidian-git/data.json
