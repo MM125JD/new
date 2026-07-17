@@ -16,9 +16,13 @@ jobs:
 
       - name: 2. 自动更新 Markdown 音频列表
         run: |
+          # 扫描 public/audios 文件夹下的 mp3 文件并生成格式化列表
           AUDIOS_LIST=$(ls public/audios | grep '\.mp3$' | awk '{print "  \x27" $0 "\x27,"}')
-          MD_FILE="index.md" # 如果你的 index.md 在 docs 目录下，请改为 docs/index.md
           
+          # 🔑 精准指向你的“未命名.md”文件路径
+          MD_FILE="posts/Ai/未命名.md"
+          
+          # 自动替换组件中的音频列表
           awk -v new_list="$AUDIOS_LIST" '
             BEGIN { p=1 }
             /:audios="\[/ { print; print new_list; p=0; next }
@@ -30,7 +34,10 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.md  # 🔑 这里直接写死 index.md
+          
+          # 🔑 精准添加修改后的文件
+          git add posts/Ai/未命名.md
+          
           # 如果文件有变动就提交，没变动就跳过，防止报错
           git diff-index --quiet HEAD || git commit -m "auto: update audio list in md"
           git push
@@ -38,16 +45,17 @@ jobs:
       - name: 4. 安装 Node.js 环境
         uses: actions/setup-node@v4
         with:
-          node-size: 20
-          cache: 'npm' # 如果你用 yarn 或 pnpm，可以改成对应的包管理器
+          node-version: 20
+          cache: 'npm'
 
       - name: 5. 安装依赖并打包 VitePress
         run: |
           npm install
-          npm run docs:build # 请确保你 package.json 里的打包命令是这个，如果不是请修改
+          npm run docs:build # 请确保你 package.json 里的打包命令是这个
 
       - name: 6. 部署到 GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .vitepress/dist # 请根据你 VitePress 实际生成的打包目录填写（通常是 docs/.vitepress/dist 或 .vitepress/dist）
+          # 🔑 根据你的截图，.vitepress 文件夹直接在根目录下
+          publish_dir: .vitepress/dist
