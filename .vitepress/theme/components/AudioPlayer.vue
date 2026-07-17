@@ -51,14 +51,11 @@
 <script setup>
 import { ref, onBeforeUnmount } from 'vue'
 
-defineProps({
-  src: {
-    type: String,
-    required: true
-  },
+const props = defineProps({
+  src: String,
   title: {
     type: String,
-    default: '英语口语打卡'
+    default: '未命名录音'
   }
 })
 

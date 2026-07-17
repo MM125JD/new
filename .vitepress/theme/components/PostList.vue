@@ -7,7 +7,7 @@ import { withBase } from 'vitepress'
 
 // 💡 新增：分页控制逻辑
 const currentPage = ref(1) // 当前页码，默认第一页
-const pageSize = 5         // 每页显示的数量（5个）
+const pageSize = 10         // 每页显示的数量（5个）
 
 // 💡 新增：计算总页数
 const totalPages = computed(() => {

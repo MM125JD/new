@@ -3,6 +3,7 @@
 import DefaultTheme from "vitepress/theme";
 import type { Theme } from 'vitepress'
 import AudioPlayer from './components/AudioPlayer.vue'
+import AudioList from './components/AudioList.vue'
 import { h } from 'vue'
 // @ts-ignore
 import GiscusComment from './components/GiscusComment.vue'
@@ -15,9 +16,10 @@ import './custom.css';
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
     // 全局注册组件，组件名为 'AudioPlayer'
     app.component('AudioPlayer', AudioPlayer)
+    app.component('AudioList', AudioList)
   },
   Layout() {
     return h(DefaultTheme.Layout, null, {
