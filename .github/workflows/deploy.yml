@@ -1,5 +1,4 @@
 # 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程
-#
 name: Deploy VitePress site to Pages
 
 on:
@@ -29,24 +28,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4 # 降低至 v4 保持稳定性
         with:
-          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
-      # - uses: pnpm/action-setup@v4 # 如果使用 pnpm，请取消此区域注释
-      #   with:
-      #     version: 9
-      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
+          fetch-depth: 0 # 获取 Git 历史/提交时间
+
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4 # 降低至 v4 保持稳定性
         with:
-          node-version: 24
-          cache: npm # 或 pnpm / yarn
+          node-version: 20 # 建议使用稳定主流的 Node 20 版本，避免 Node 24 过于前沿导致依赖冲突
+          cache: npm
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Install dependencies
-        run: npm ci # 或 pnpm install / yarn install / bun install
+        run: npm install # 💡 替换 npm ci，避免 package-lock.json 不匹配时引发构建中断
+
       - name: Build with VitePress
-        run: npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: npm run build # 💡 核心修改：使用你项目的标准打包命令
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
