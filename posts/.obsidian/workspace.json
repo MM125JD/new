@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "日记/7.10.md",
+                "file": "Ai/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7.10"
+              "title": "未命名"
             }
           }
         ]
@@ -185,6 +185,7 @@
   },
   "active": "1fb135b959648bf5",
   "lastOpenFiles": [
+    "日记/7.10.md",
     "Ai/未命名.md",
     "public/audios/sd 4.mp3",
     "public/audios/sd 3.mp3",
@@ -201,7 +202,6 @@
     "public/audios/sd 1 1.mp3",
     "public/audios/sd%201.mp3",
     "public",
-    "日记/7.10.md",
     "页面局部元素/云端到本地.md",
     "guide/syntax.md",
     "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
