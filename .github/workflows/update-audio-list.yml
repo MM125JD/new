@@ -5,6 +5,7 @@ on:
     paths:
       - 'public/audios/**' # 只有当你往这个文件夹上传新录音时触发
       - 'posts/**'
+      - 'public'
 
 # 必须加上这些权限，官方原生部署机器人才能正常工作
 permissions:
