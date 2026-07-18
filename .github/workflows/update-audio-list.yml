@@ -5,24 +5,34 @@ on:
     paths:
       - 'public/audios/**' # 只有当你往这个文件夹上传新录音时触发
 
+# 必须加上这些权限，官方原生部署机器人才能正常工作
+permissions:
+  contents: write    # 允许把修改后的 index.md 推送回仓库
+  pages: write       # 允许发布网页
+  id-token: write    # 官方 Pages 身份验证
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  update-and-deploy:
+  build-and-update:
     runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.check_changes.outputs.changed }}
     steps:
       - name: 1. 拉取代码
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
 
       - name: 2. 自动更新 Markdown 音频列表
         run: |
-          # 扫描 public/audios 文件夹下的 mp3 文件并生成格式化列表
           AUDIOS_LIST=$(ls public/audios | grep '\.mp3$' | awk '{print "  \x27" $0 "\x27,"}')
+          # 💡 如果你的 index.md 在 docs 目录下，请改为 docs/index.md
+          MD_FILE="index.md" 
           
-          # 🔑 精准指向你的“未命名.md”文件路径
-          MD_FILE="posts/Ai/未命名.md"
-          
-          # 自动替换组件中的音频列表
           awk -v new_list="$AUDIOS_LIST" '
             BEGIN { p=1 }
             /:audios="\[/ { print; print new_list; p=0; next }
@@ -31,16 +41,15 @@ jobs:
           ' "$MD_FILE" > temp.md && mv temp.md "$MD_FILE"
 
       - name: 3. 把修改后的 Markdown 提交回仓库
+        id: check_changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 🔑 精准添加修改后的文件
-          git add posts/Ai/未命名.md
-          
-          # 如果文件有变动就提交，没变动就跳过，防止报错
-          git diff-index --quiet HEAD || git commit -m "auto: update audio list in md"
-          git push
+          git add "$MD_FILE"
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "auto: update audio list in md"
+            git push
+          fi
 
       - name: 4. 安装 Node.js 环境
         uses: actions/setup-node@v4
@@ -51,11 +60,24 @@ jobs:
       - name: 5. 安装依赖并打包 VitePress
         run: |
           npm install
-          npm run docs:build # 请确保你 package.json 里的打包命令是这个
+          # 💡 请确保你 package.json 里的打包命令是这个，如果是 npm run build 请修改
+          npm run docs:build 
 
-      - name: 6. 部署到 GitHub Pages 🚀
-        uses: peaceiris/actions-gh-pages@v4
+      - name: 6. 官方规范：上传打包产物 🚀
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # 🔑 根据你的截图，.vitepress 文件夹直接在根目录下
-          publish_dir: .vitepress/dist
+          # 💡 请确保这是你 VitePress 真正生成的 dist 目录路径
+          path: .vitepress/dist
+
+  # 🏆 核心补丁：这就是之前漏掉的原生部署阶段！
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build-and-update  # 确保前面的打包完成后再执行发布
+    runs-on: ubuntu-latest
+    name: Deploy to Live Site
+    steps:
+      - name: 7. 真正发布到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
