@@ -45,7 +45,10 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add "$MD_FILE"
+          
+          # 💡 不再使用容易变空的变量，直接精准指定文件名（如果 index.md 在 docs 目录下，这里请改成 docs/index.md）
+          git add index.md
+          
           if ! git diff-index --quiet HEAD; then
             git commit -m "auto: update audio list in md"
             git push
