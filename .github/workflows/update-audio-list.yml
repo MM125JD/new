@@ -31,7 +31,8 @@ jobs:
         run: |
           AUDIOS_LIST=$(ls public/audios | grep '\.mp3$' | awk '{print "  \x27" $0 "\x27,"}')
           # 💡 如果你的 index.md 在 docs 目录下，请改为 docs/index.md
-          MD_FILE="index.md" 
+    
+          MD_FILE="posts/Ai/未命名.md" 
           
           awk -v new_list="$AUDIOS_LIST" '
             BEGIN { p=1 }
@@ -46,8 +47,8 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # 💡 不再使用容易变空的变量，直接精准指定文件名（如果 index.md 在 docs 目录下，这里请改成 docs/index.md）
-          git add index.md
+          # 🎯 这里的路径同步保持一致
+          git add posts/Ai/未命名.md
           
           if ! git diff-index --quiet HEAD; then
             git commit -m "auto: update audio list in md"
