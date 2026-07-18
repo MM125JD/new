@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ai/未命名.md",
+                "file": "笔记/未命名.md",
                 "mode": "source",
                 "source": false
               },
@@ -185,14 +185,19 @@
   },
   "active": "1fb135b959648bf5",
   "lastOpenFiles": [
+    "public/audios/Pasted image 20260718211336.png",
+    "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
+    "笔记/未命名.md",
+    "笔记",
+    "sd%201.md",
+    "guide/syntax.md",
+    "Ai/未命名.md",
     "Ai/未命名.md~",
     "日记/7.10.md",
-    "Ai/未命名.md",
     "public/audios/sd 4.mp3",
     "public/audios/sd 3.mp3",
     "public/audios/sd 2.mp3",
     "public/audios/sd 1.mp3",
-    "sd%201.md",
     "public/audios/sd.mp3",
     "public/audios",
     "未命名.md",
@@ -201,11 +206,7 @@
     "public/audios/alec_koff-carnaval-484622.mp3",
     "public/audios/Pasted image 20260716151658.png",
     "public/audios/sd 1 1.mp3",
-    "public/audios/sd%201.mp3",
-    "public",
     "页面局部元素/云端到本地.md",
-    "guide/syntax.md",
-    "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
     "你好/Kotlin基础复习.md",
     "天才/懒加载.md",
     "天才/别删.md",
@@ -221,7 +222,6 @@
     "JavaScript/浏览器贴纸.md",
     "toc.md",
     "first.md",
-    "我是/牛马的一声.md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
