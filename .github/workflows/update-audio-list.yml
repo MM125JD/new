@@ -29,7 +29,7 @@ jobs:
 
       - name: 2. 自动更新 Markdown 音频列表
         run: |
-          AUDIOS_LIST=$(ls public/audios | grep '\.m4a$' | awk '{print "  \x27" $0 "\x27,"}')
+          AUDIOS_LIST=$(ls public/audios | grep '\.mp3$' | awk '{print "  \x27" $0 "\x27,"}')
           # 💡 如果你的 index.md 在 docs 目录下，请改为 docs/index.md
           MD_FILE="index.md" 
           
