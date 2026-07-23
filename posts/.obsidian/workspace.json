@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "日记/7.10.md",
+                "file": "页面局部元素/外部.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7.10"
+              "title": "外部"
             }
           }
         ]
@@ -185,10 +185,17 @@
   },
   "active": "1fb135b959648bf5",
   "lastOpenFiles": [
-    "Ai/未命名.md",
+    "页面局部元素/导航类.md",
+    "页面局部元素/云端到本地.md",
+    "页面局部元素/外部.md",
+    "game.zip.md",
+    "日记/7.10.md",
+    "你好/Kotlin基础复习.md",
+    "你好/未知的一天.md",
     "你好/未命名.md",
-    "笔记/git.md",
     "笔记/小龙虾.md",
+    "Ai/未命名.md",
+    "笔记/git.md",
     "年度任务/7.22.md",
     "未命名.md",
     "年度任务",
@@ -197,13 +204,11 @@
     "public/audios/Pasted image 20260718211336.png",
     "天才/别删.md",
     "笔记/未命名.canvas",
-    "你好/未知的一天.md",
     "guide/YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化语言，后缀通常为 .yaml 或 .yml….md",
     "笔记",
     "sd%201.md",
     "guide/syntax.md",
     "Ai/未命名.md~",
-    "日记/7.10.md",
     "public/audios/sd 4.mp3",
     "public/audios/sd 3.mp3",
     "public/audios/sd 2.mp3",
@@ -212,18 +217,13 @@
     "sd.md",
     "public/audios/alec_koff-carnaval-484622.mp3",
     "public/audios/Pasted image 20260716151658.png",
-    "页面局部元素/云端到本地.md",
-    "你好/Kotlin基础复习.md",
     "天才/懒加载.md",
     "JavaScript/语言复读机.md",
-    "页面局部元素/外部.md",
-    "页面局部元素/导航类.md",
     "JavaScript/调色.md",
     "JavaScript/番茄钟.md",
     "JavaScript/复习.md",
     "JavaScript/升级.md",
     "JavaScript/浏览器贴纸.md",
-    "toc.md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
