@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "d833ec4d8e48d0bc",
+        "id": "881a0e74b7c561dd",
         "type": "tabs",
         "children": [
           {
-            "id": "be84e942004c7803",
+            "id": "70f0834a9d1f9bb5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "阳光/天才.md",
+                "file": "未命名/睡眠日记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "天才"
-            }
-          },
-          {
-            "id": "87b37e3534ff0051",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "未命名 3/未命名.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "未命名"
+              "title": "睡眠日记"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -198,10 +183,14 @@
       "bases:新建数据库": false
     }
   },
-  "active": "87b37e3534ff0051",
+  "active": "70f0834a9d1f9bb5",
   "lastOpenFiles": [
-    "未命名 4/未命名.md",
+    "未命名.md",
+    "未命名/睡眠日记.md",
+    "未命名",
+    "阳光/天才.md",
     "未命名 3/未命名.md",
+    "未命名 4/未命名.md",
     "未命名 5/未命名.md",
     "未命名 7/未命名.md",
     "阳光/未命名 12.md",
@@ -212,7 +201,6 @@
     "未命名 3",
     "未命名 2",
     "未命名 1",
-    "未命名",
     "阳光/未命名 11.md",
     "阳光/未命名 10.md",
     "阳光/未命名 9.md",
@@ -223,9 +211,7 @@
     "阳光/未命名 8.md",
     "阳光/未命名 7.md",
     "阳光/未命名 6.md",
-    "未命名.md",
     "母列表.md",
-    "阳光/天才.md",
     "阳光/未命名 4.md",
     "阳光/未命名 2.md",
     "我是/未命名.md",
@@ -233,7 +219,6 @@
     "d.md",
     "未命名 7.md",
     "未命名 8.md",
-    "未命名 6.md",
     "双方的",
     "天才"
   ]
