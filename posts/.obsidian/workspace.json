@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ai/未命名.md",
+                "file": "你好/未知的一天.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "未知的一天"
             }
           }
         ]
@@ -187,6 +187,8 @@
   },
   "active": "fafb4ec5d9072be3",
   "lastOpenFiles": [
+    "你好/未命名.md",
+    "Ai/未命名.md",
     "人生管理系统/休息/休息原因.md",
     "人生管理系统/休息/睡眠.md",
     "笔记/记忆.md",
@@ -203,14 +205,12 @@
     "你好/未知的一天.md",
     "你好/Kotlin基础复习.md",
     "日记/7.10.md",
-    "日记/天才/别删.md",
+    "天才/别删.md",
     "日记/页面局部元素/导航类.md",
     "笔记/python.md",
-    "你好/未命名.md",
     "日记/页面局部元素/云端到本地.md",
     "日记/页面局部元素/外部.md",
     "日记/一道题目.md",
-    "Ai/未命名.md",
     "未命名.md",
     "年度任务",
     "public/audios/sd 1.mp3",
