@@ -1,3 +1,6 @@
 [
-  "dataview"
+  "dataview",
+  "obsidian-admonition",
+  "obsidian-advanced-uri",
+  "obsidian-git"
 ]
