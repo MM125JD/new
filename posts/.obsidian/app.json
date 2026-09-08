@@ -1,4 +1,5 @@
 {
   "attachmentFolderPath": "public/audios",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "promptDelete": false
 }
